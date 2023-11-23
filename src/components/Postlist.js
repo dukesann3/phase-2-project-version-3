@@ -8,6 +8,10 @@ function Postlist(){
 
     return(
         <>
+            <form className='make-new-post-form'>
+                <input type='text' placeholder='Post'/>
+                <input type='submit' value='Submit'/>
+            </form>
             {posts.map(individualPost => <Post key={individualPost.id} individualPost={individualPost} setPosts={setPosts}/>)}
         </>
     )
