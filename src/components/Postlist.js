@@ -8,7 +8,7 @@ function Postlist(){
 
     return(
         <>
-            {posts.map(post => <Post post={post} />)}
+            {posts.map(individualPost => <Post key={individualPost.id} individualPost={individualPost} setPosts={setPosts}/>)}
         </>
     )
 }

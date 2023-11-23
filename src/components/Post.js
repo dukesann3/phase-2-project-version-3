@@ -1,7 +1,11 @@
 
-function Post(){
+function Post({individualPost, setPost}){
+
+    const {author, post, isHidden, likes} = individualPost;
+
     return(
         <>
+            <li>{author}</li>
         </>
     )
 }
