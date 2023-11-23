@@ -11,3 +11,10 @@ async function addNewPostToDataBase(POSTform, POSTurl){
     .then(newPostResponse => newPostResponse.json());
 
 }
+
+function getCurrentTimeStamp(){
+    const currentTimeStamp = Date.now();
+    return currentTimeStamp;
+}
+
+export {addNewPostToDataBase, getCurrentTimeStamp};
