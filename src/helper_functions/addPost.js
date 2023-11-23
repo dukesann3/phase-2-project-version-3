@@ -13,7 +13,7 @@ async function addNewPostToDataBase(POSTform, POSTurl){
 }
 
 function getCurrentTimeStamp(){
-    const currentTimeStamp = Date.now();
+    const currentTimeStamp = new Date().toJSON();
     return currentTimeStamp;
 }
 
