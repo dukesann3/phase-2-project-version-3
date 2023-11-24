@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import PostElementFromList from "./PostElementFromList";
+import PostElementFromSettings from "./PostElementFromSettings";
 
-function Post({ individualPost, setPatchedPostOntoUseState }) {
+function Post({ individualPost, setPatchedPostOntoUseState, postType }) {
 
     const { id, author, post, isHidden, isLiked, likes, timestamp } = individualPost;
     const apiUrlWithPostId = `http://localhost:8000/posts/${id}`;
@@ -33,16 +34,11 @@ function Post({ individualPost, setPatchedPostOntoUseState }) {
 
     return (
         <div>
-            {!isHidden ?
-                <div>
-                    <li>{author}</li>
-                    <li>{post}</li>
-                    <li>{isHidden}</li>
-                    <li onClick={handleLikedPropertyForBothDataBaseAndUseState}>{likes}</li>
-                    <li>{timestamp}</li>
-                    <button onClick={handleIsHiddenPropertyForBothDataBaseAndUseState}>HIDE POST</button>
-                </div>
-            : null}
+            {postType === 'postlist' ?
+                <PostElementFromList individualPost={individualPost} handleIsHiddenPropertyForBothDataBaseAndUseState={handleIsHiddenPropertyForBothDataBaseAndUseState} handleLikedPropertyForBothDataBaseAndUseState={handleLikedPropertyForBothDataBaseAndUseState}/>
+            :
+                <PostElementFromSettings individualPost={individualPost} handleIsHiddenPropertyForBothDataBaseAndUseState={handleIsHiddenPropertyForBothDataBaseAndUseState}/>
+            }
         </div>
     )
 }

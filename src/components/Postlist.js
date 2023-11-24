@@ -26,7 +26,6 @@ function Postlist() {
             isLiked: false,
             likes: 0,
         };
-        debugger;
     },[addNewPostToDataBase]);
 
     async function addNewPostToDataBase(POSTform){
@@ -84,14 +83,13 @@ function Postlist() {
         }))
     }
 
-
     return (
         <>
             <form className='make-new-post-form' onSubmit={handleNewPostSubmit}>
                 <input type='text' placeholder='Post' name='post' onChange={handleNewPostChange} />
                 <input type='submit' value='Submit' />
             </form>
-            {posts.map(individualPost => <Post key={individualPost.id} individualPost={individualPost} setPatchedPostOntoUseState={setPatchedPostOntoUseState}/>)}
+            {posts.map(individualPost => <Post key={individualPost.id} individualPost={individualPost} setPatchedPostOntoUseState={setPatchedPostOntoUseState} postType={'postlist'}/>)}
         </>
     )
 }
