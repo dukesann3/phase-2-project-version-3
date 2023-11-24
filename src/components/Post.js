@@ -3,7 +3,7 @@ import PostElementFromSettings from "./PostElementFromSettings";
 
 function Post({ individualPost, setPatchedPostOntoUseState, postType }) {
 
-    const { id, author, post, isHidden, isLiked, likes, timestamp } = individualPost;
+    const { id, isHidden, isLiked, likes } = individualPost;
     const apiUrlWithPostId = `http://localhost:8000/posts/${id}`;
 
     async function makeChangesToPost(objKeyToChange, objValueToChange) {
