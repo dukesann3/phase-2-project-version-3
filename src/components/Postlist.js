@@ -1,5 +1,5 @@
 import useFetchPosts from "../custom_hooks/useFetch";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useRef } from "react";
 import Post from "./Post";
 import { addNewPostToDataBase, getCurrentTimeStamp } from "../helper_functions/addPost";
 import { isNotFilledOut } from "../helper_functions/jsLogicWordedDifferently";
@@ -64,13 +64,24 @@ function Postlist() {
         }
     }
 
+    function setPatchedPostOntoUseState(edittedPost){
+        setPosts(posts.map((post) => {
+            const {id} = edittedPost;
+            if(post.id === id){
+                return edittedPost;
+            }
+            return post;
+        }))
+    }
+
+
     return (
         <>
             <form className='make-new-post-form' onSubmit={handleNewPostSubmit}>
                 <input type='text' placeholder='Post' name='post' onChange={handleNewPostChange} />
                 <input type='submit' value='Submit' />
             </form>
-            {posts.map(individualPost => <Post key={individualPost.id} individualPost={individualPost} setPosts={setPosts} />)}
+            {posts.map(individualPost => <Post key={individualPost.id} individualPost={individualPost} setPatchedPostOntoUseState={setPatchedPostOntoUseState}/>)}
         </>
     )
 }
