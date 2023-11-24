@@ -1,5 +1,5 @@
 import useFetchPosts from "../custom_hooks/useFetch";
-import { useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Post from "./Post";
 import { addNewPostToDataBase, getCurrentTimeStamp } from "../helper_functions/addPost";
 import { isNotFilledOut } from "../helper_functions/jsLogicWordedDifferently";
@@ -8,7 +8,7 @@ function Postlist() {
 
     const apiUrl = 'http://localhost:8000/posts';
     const [posts, setPosts] = useFetchPosts(apiUrl);
-    const [POSTform, setPOSTform] = useState({
+    const POSTform = useRef({
         timestamp: null,
         author: "user",
         post: null,
@@ -17,27 +17,44 @@ function Postlist() {
     });
 
     function handleNewPostChange(event) {
-        setPOSTform({
-            ...POSTform,
-            [event.target.name]: event.target.value,
-        });
+        POSTform.current = {
+            ...POSTform.current,
+            post: event.target.value,
+        };
     }
 
     function setCurrentTimeStampOnForm() {
         const currentTimeStamp = getCurrentTimeStamp();
-        setPOSTform({
-            ...POSTform,
+        POSTform.current = {
+            ...POSTform.current,
             timestamp: currentTimeStamp,
-        })
+        };
     }
 
     function checkIfPostIsFilledCompletely() {
-        for (let item in POSTform) {
-            if (isNotFilledOut(POSTform[item])) {
+        for (let item in POSTform.current) {
+            debugger;
+            if (isNotFilledOut(POSTform.current[item])) {
                 return false;
             }
         }
         return true;
+    }
+
+    function clearPOSTform(){
+        POSTform.current = {
+            timestamp: null,
+            author: "user",
+            post: null,
+            isHidden: false,
+            likes: 0,
+        };
+    }
+
+    async function handleAddingNewPostToDataBase(){
+        const newPost = await addNewPostToDataBase(POSTform.current, apiUrl);
+        setPosts([...posts, newPost]);
+        clearPOSTform();
     }
 
     async function handleNewPostSubmit(event) {
@@ -45,10 +62,7 @@ function Postlist() {
         setCurrentTimeStampOnForm();
         const isFormFilledCompletely = checkIfPostIsFilledCompletely();
         if (isFormFilledCompletely) {
-            debugger;
-            await addNewPostToDataBase(POSTform, apiUrl);
-        }
-        else{
+            await handleAddingNewPostToDataBase();
             debugger;
         }
     }
