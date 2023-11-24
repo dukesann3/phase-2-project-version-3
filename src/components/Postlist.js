@@ -1,7 +1,7 @@
 import useFetchPosts from "../custom_hooks/useFetch";
 import { useEffect, useRef } from "react";
 import Post from "./Post";
-import { addNewPostToDataBase, getCurrentTimeStamp } from "../helper_functions/addPost";
+import { getCurrentTimeStamp } from "../helper_functions/addPost";
 import { isNotFilledOut } from "../helper_functions/jsLogicWordedDifferently";
 
 function Postlist() {
@@ -26,7 +26,19 @@ function Postlist() {
             isLiked: false,
             likes: 0,
         };
-    },[handleAddingNewPostToDataBase])
+    },[handleAddingNewPostToDataBase]);
+
+    async function addNewPostToDataBase(POSTform){
+        return await fetch(apiUrl, {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(POSTform)
+        })
+        .then(newPostResponse => newPostResponse.json())
+        .then(newPost => setPosts([...posts, newPost]))
+    }
 
     function handleNewPostChange(event) {
         POSTform.current = {
@@ -53,8 +65,7 @@ function Postlist() {
     }
 
     async function handleAddingNewPostToDataBase(){
-        const newPost = await addNewPostToDataBase(POSTform.current, apiUrl);
-        setPosts([...posts, newPost]);
+        const newPost = await addNewPostToDataBase(POSTform.current);
     }
 
     async function handleNewPostSubmit(event) {
