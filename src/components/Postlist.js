@@ -16,6 +16,16 @@ function Postlist() {
         likes: 0,
     });
 
+    useEffect(()=>{
+        POSTform.current = {
+            timestamp: null,
+            author: "user",
+            post: null,
+            isHidden: false,
+            likes: 0,
+        };
+    },[handleAddingNewPostToDataBase])
+
     function handleNewPostChange(event) {
         POSTform.current = {
             ...POSTform.current,
@@ -33,7 +43,6 @@ function Postlist() {
 
     function checkIfPostIsFilledCompletely() {
         for (let item in POSTform.current) {
-            debugger;
             if (isNotFilledOut(POSTform.current[item])) {
                 return false;
             }
@@ -41,20 +50,9 @@ function Postlist() {
         return true;
     }
 
-    function clearPOSTform(){
-        POSTform.current = {
-            timestamp: null,
-            author: "user",
-            post: null,
-            isHidden: false,
-            likes: 0,
-        };
-    }
-
     async function handleAddingNewPostToDataBase(){
         const newPost = await addNewPostToDataBase(POSTform.current, apiUrl);
         setPosts([...posts, newPost]);
-        clearPOSTform();
     }
 
     async function handleNewPostSubmit(event) {
@@ -63,7 +61,6 @@ function Postlist() {
         const isFormFilledCompletely = checkIfPostIsFilledCompletely();
         if (isFormFilledCompletely) {
             await handleAddingNewPostToDataBase();
-            debugger;
         }
     }
 
