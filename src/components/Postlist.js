@@ -13,6 +13,7 @@ function Postlist() {
         author: "user",
         post: null,
         isHidden: false,
+        isLiked: false,
         likes: 0,
     });
 
@@ -22,6 +23,7 @@ function Postlist() {
             author: "user",
             post: null,
             isHidden: false,
+            isLiked: false,
             likes: 0,
         };
     },[handleAddingNewPostToDataBase])

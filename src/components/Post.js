@@ -2,15 +2,8 @@ import { useEffect, useState } from "react";
 
 function Post({ individualPost, setPatchedPostOntoUseState }) {
 
-    const { id, author, post, isHidden, likes, timestamp } = individualPost;
+    const { id, author, post, isHidden, isLiked, likes, timestamp } = individualPost;
     const apiUrlWithPostId = `http://localhost:8000/posts/${id}`;
-
-    const [isLiked, setIsLiked] = useState(JSON.parse(localStorage.getItem("isLiked")) || false);
-
-    function valueOfLikeOnceClicked() {
-        const likeValue = isLiked ? likes - 1 : likes + 1;
-        return likeValue;
-    }
 
     async function makeChangesToPost(objKeyToChange, objValueToChange) {
         const JSONedObject = JSON.stringify({ [objKeyToChange]: objValueToChange });
@@ -25,14 +18,17 @@ function Post({ individualPost, setPatchedPostOntoUseState }) {
             .then(jsonedEdittedPost => setPatchedPostOntoUseState(jsonedEdittedPost))
     }
 
+    function valueOfLikeOnceClicked() {
+        const likeValue = isLiked ? likes - 1 : likes + 1;
+        return likeValue;
+    }
+
     async function handleIsHiddenPropertyForBothDataBaseAndUseState() {
         await makeChangesToPost('isHidden', !isHidden);
     }
 
     async function handleLikedPropertyForBothDataBaseAndUseState() {
-        setIsLiked(!isLiked);
-        localStorage.setItem('isLiked', JSON.stringify(!isLiked));
-        await makeChangesToPost('likes', valueOfLikeOnceClicked());
+        await Promise.all([makeChangesToPost('likes', valueOfLikeOnceClicked()), makeChangesToPost('isLiked', !isLiked)]);
     }
 
     return (
