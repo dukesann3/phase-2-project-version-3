@@ -323,6 +323,15 @@
       "isLiked": false,
       "likes": 0,
       "id": 36
+    },
+    {
+      "timestamp": "2023-11-24T05:43:26.342Z",
+      "author": "user",
+      "post": "new post here",
+      "isHidden": false,
+      "isLiked": false,
+      "likes": 0,
+      "id": 37
     }
   ]
 }

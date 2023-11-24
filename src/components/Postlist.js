@@ -26,7 +26,8 @@ function Postlist() {
             isLiked: false,
             likes: 0,
         };
-    },[handleAddingNewPostToDataBase]);
+        debugger;
+    },[addNewPostToDataBase]);
 
     async function addNewPostToDataBase(POSTform){
         return await fetch(apiUrl, {
@@ -64,16 +65,12 @@ function Postlist() {
         return true;
     }
 
-    async function handleAddingNewPostToDataBase(){
-        const newPost = await addNewPostToDataBase(POSTform.current);
-    }
-
     async function handleNewPostSubmit(event) {
         event.preventDefault();
         setCurrentTimeStampOnForm();
         const isFormFilledCompletely = checkIfPostIsFilledCompletely();
         if (isFormFilledCompletely) {
-            await handleAddingNewPostToDataBase();
+            await addNewPostToDataBase(POSTform.current);
         }
     }
 
