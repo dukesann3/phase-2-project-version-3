@@ -311,8 +311,8 @@
       "author": "user",
       "post": "asd",
       "isHidden": false,
-      "isLiked": false,
-      "likes": 0,
+      "isLiked": true,
+      "likes": 1,
       "id": 35
     },
     {
@@ -328,7 +328,7 @@
       "timestamp": "2023-11-24T05:43:26.342Z",
       "author": "user",
       "post": "new post here",
-      "isHidden": false,
+      "isHidden": true,
       "isLiked": false,
       "likes": 0,
       "id": 37
@@ -337,7 +337,7 @@
       "timestamp": "2023-11-25T04:50:59.054Z",
       "author": "user",
       "post": "more post to add here",
-      "isHidden": false,
+      "isHidden": true,
       "isLiked": false,
       "likes": 0,
       "id": 38

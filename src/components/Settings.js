@@ -8,7 +8,7 @@ function Settings() {
     const [posts, setPosts] = useFetchPosts(apiUrl);
     const sortedPostsInAscendingOrderOfId = sortPostsInOrderOfId(posts);
 
-    function setPatchedPostOntoUseState(edittedPost) {
+    function setEdittedPostOntoUseState(edittedPost) {
         setPosts(posts.map((post) => {
             const { id } = edittedPost;
             if (post.id === id) {
@@ -25,7 +25,7 @@ function Settings() {
             {sortedPostsInAscendingOrderOfId.map((post) => {
                 const { isHidden } = post;
                 if (isHidden) {
-                    return <Post individualPost={post} setPatchedPostOntoUseState={setPatchedPostOntoUseState} postType={'postSettings'} />
+                    return <Post individualPost={post} setEdittedPostOntoUseState={setEdittedPostOntoUseState} postType={'postSettings'} />
                 }
             })}
         </>

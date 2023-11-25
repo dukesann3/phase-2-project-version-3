@@ -1,7 +1,7 @@
 import PostElementFromList from "./PostElementFromList";
 import PostElementFromSettings from "./PostElementFromSettings";
 
-function Post({ individualPost, setPatchedPostOntoUseState, postType }) {
+function Post({ individualPost, setEdittedPostOntoUseState, postType }) {
 
     const { id, isHidden, isLiked, likes } = individualPost;
     const apiUrlWithPostId = `http://localhost:8000/posts/${id}`;
@@ -16,7 +16,7 @@ function Post({ individualPost, setPatchedPostOntoUseState, postType }) {
             body: JSONedObject
         })
             .then(edittedPost => edittedPost.json())
-            .then(jsonedEdittedPost => setPatchedPostOntoUseState(jsonedEdittedPost))
+            .then(jsonedEdittedPost => setEdittedPostOntoUseState(jsonedEdittedPost))
     }
 
     function valueOfLikeOnceClicked() {

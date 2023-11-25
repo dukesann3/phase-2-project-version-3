@@ -76,7 +76,7 @@ function Postlist() {
         }
     }
 
-    function setPatchedPostOntoUseState(edittedPost){
+    function setEdittedPostOntoUseState(edittedPost){
         setPosts(posts.map((post) => {
             const {id} = edittedPost;
             if(post.id === id){
@@ -92,7 +92,7 @@ function Postlist() {
                 <input type='text' placeholder='Post' name='post' onChange={handleNewPostChange} />
                 <input type='submit' value='Submit' />
             </form>
-            {sortedPostsInAscendingOrderOfId.map(individualPost => <Post key={individualPost.id} individualPost={individualPost} setPatchedPostOntoUseState={setPatchedPostOntoUseState} postType={'postlist'}/>)}
+            {sortedPostsInAscendingOrderOfId.map(individualPost => <Post key={individualPost.id} individualPost={individualPost} setEdittedPostOntoUseState={setEdittedPostOntoUseState} postType={'postlist'}/>)}
         </>
     )
 }
