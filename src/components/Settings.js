@@ -1,10 +1,12 @@
 import useFetchPosts from "../custom_hooks/useFetch";
 import Post from "./Post";
+import { sortPostsInOrderOfId } from "../helper_functions/sorting";
 
 function Settings() {
 
     const apiUrl = 'http://localhost:8000/posts';
     const [posts, setPosts] = useFetchPosts(apiUrl);
+    const sortedPostsInAscendingOrderOfId = sortPostsInOrderOfId(posts);
 
     function setPatchedPostOntoUseState(edittedPost) {
         setPosts(posts.map((post) => {
@@ -20,7 +22,7 @@ function Settings() {
         <>
             <h1>SETTINGS</h1>
             <h3>HIDDEN POSTS</h3>
-            {posts.map((post) => {
+            {sortedPostsInAscendingOrderOfId.map((post) => {
                 const { isHidden } = post;
                 if (isHidden) {
                     return <Post individualPost={post} setPatchedPostOntoUseState={setPatchedPostOntoUseState} postType={'postSettings'} />
