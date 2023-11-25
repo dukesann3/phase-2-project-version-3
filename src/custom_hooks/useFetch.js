@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { sortPostsInOrderOfId } from "../helper_functions/sorting";
 
 function useFetchPosts(apiUrl){
 
@@ -7,7 +8,10 @@ function useFetchPosts(apiUrl){
     useEffect(()=>{
         fetch(apiUrl)
         .then(fetchedPosts => fetchedPosts.json())
-        .then(jsonedFetchedPosts => setPosts(jsonedFetchedPosts))
+        .then((jsonedFetchedPosts) => {
+            const sortedPostsAscendingId = sortPostsInOrderOfId(jsonedFetchedPosts);
+            setPosts(sortedPostsAscendingId);
+        })
     },[]);
 
     return [posts, setPosts];
