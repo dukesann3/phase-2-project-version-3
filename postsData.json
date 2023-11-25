@@ -332,6 +332,24 @@
       "isLiked": false,
       "likes": 0,
       "id": 37
+    },
+    {
+      "timestamp": "2023-11-25T04:50:59.054Z",
+      "author": "user",
+      "post": "more post to add here",
+      "isHidden": false,
+      "isLiked": false,
+      "likes": 0,
+      "id": 38
+    },
+    {
+      "timestamp": "2023-11-25T04:52:36.184Z",
+      "author": "user",
+      "post": "add another post here again",
+      "isHidden": false,
+      "isLiked": false,
+      "likes": 0,
+      "id": 39
     }
   ]
 }

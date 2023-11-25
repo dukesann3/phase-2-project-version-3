@@ -3,11 +3,14 @@ import { useEffect, useRef } from "react";
 import Post from "./Post";
 import { getCurrentTimeStamp } from "../helper_functions/addPost";
 import { isNotFilledOut } from "../helper_functions/jsLogicWordedDifferently";
+import { sortPostsInOrderOfId } from "../helper_functions/sorting";
 
 function Postlist() {
 
     const apiUrl = 'http://localhost:8000/posts';
     const [posts, setPosts] = useFetchPosts(apiUrl);
+    const sortedPostsInAscendingOrderOfId = sortPostsInOrderOfId(posts);
+
     const POSTform = useRef({
         timestamp: null,
         author: "user",
@@ -89,7 +92,7 @@ function Postlist() {
                 <input type='text' placeholder='Post' name='post' onChange={handleNewPostChange} />
                 <input type='submit' value='Submit' />
             </form>
-            {posts.map(individualPost => <Post key={individualPost.id} individualPost={individualPost} setPatchedPostOntoUseState={setPatchedPostOntoUseState} postType={'postlist'}/>)}
+            {sortedPostsInAscendingOrderOfId.map(individualPost => <Post key={individualPost.id} individualPost={individualPost} setPatchedPostOntoUseState={setPatchedPostOntoUseState} postType={'postlist'}/>)}
         </>
     )
 }
