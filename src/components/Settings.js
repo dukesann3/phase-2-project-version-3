@@ -27,6 +27,7 @@ function Settings() {
                 if (isHidden) {
                     return <Post individualPost={post} setEdittedPostOntoUseState={setEdittedPostOntoUseState} postType={'postSettings'} />
                 }
+                return null;
             })}
         </>
     )
