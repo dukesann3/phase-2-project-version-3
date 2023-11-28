@@ -1,5 +1,5 @@
 import useFetchPosts from "../custom_hooks/useFetch";
-import { useEffect, useRef } from "react";
+import { useState } from "react";
 import Post from "./Post";
 import { getCurrentTimeStamp } from "../helper_functions/addPost";
 import { isNotFilledOut } from "../helper_functions/jsLogicWordedDifferently";
@@ -11,7 +11,7 @@ function Postlist() {
     const [posts, setPosts] = useFetchPosts(apiUrl);
     const sortedPostsInAscendingOrderOfId = sortPostsInOrderOfId(posts);
 
-    const POSTform = useRef({
+    const [POSTform, setPOSTform] = useState({
         timestamp: null,
         author: "user",
         post: null,
@@ -20,18 +20,7 @@ function Postlist() {
         likes: 0,
     });
 
-    useEffect(()=>{
-        POSTform.current = {
-            timestamp: null,
-            author: "user",
-            post: null,
-            isHidden: false,
-            isLiked: false,
-            likes: 0,
-        };
-    },[addNewPostToDataBase]);
-
-    async function addNewPostToDataBase(POSTform){
+    async function addNewPostToDataBase(POSTform) {
         return await fetch(apiUrl, {
             method: 'POST',
             headers: {
@@ -39,47 +28,60 @@ function Postlist() {
             },
             body: JSON.stringify(POSTform)
         })
-        .then(newPostResponse => newPostResponse.json())
-        .then(newPost => setPosts([...posts, newPost]))
+            .then(newPostResponse => newPostResponse.json())
+            .then((newPost) => {
+                setPosts([...posts, newPost]);
+                setPOSTform({
+                    timestamp: null,
+                    author: "user",
+                    post: null,
+                    isHidden: false,
+                    isLiked: false,
+                    likes: 0,
+                })
+
+            })
     }
 
     function handleNewPostChange(event) {
-        POSTform.current = {
-            ...POSTform.current,
+        setPOSTform({
+            ...POSTform,
             post: event.target.value,
-        };
+        });
     }
 
     function setCurrentTimeStampOnForm() {
         const currentTimeStamp = getCurrentTimeStamp();
-        POSTform.current = {
-            ...POSTform.current,
+        setPOSTform({
+            ...POSTform,
             timestamp: currentTimeStamp,
-        };
+        });
     }
 
     function checkIfPostIsFilledCompletely() {
-        for (let item in POSTform.current) {
-            if (isNotFilledOut(POSTform.current[item])) {
+        for (let item in POSTform) {
+            if (isNotFilledOut(POSTform[item])) {
                 return false;
             }
         }
         return true;
     }
 
-    async function handleNewPostSubmit(event) {
+    async function handleSubmitForm(event) {
         event.preventDefault();
-        setCurrentTimeStampOnForm();
-        const isFormFilledCompletely = checkIfPostIsFilledCompletely();
-        if (isFormFilledCompletely) {
-            await addNewPostToDataBase(POSTform.current);
+        if (checkIfPostIsFilledCompletely()) {
+            addNewPostToDataBase(POSTform);
         }
+        else {
+            console.log('error');
+        }
+
     }
 
-    function setEdittedPostOntoUseState(edittedPost){
+    function setEdittedPostOntoUseState(edittedPost) {
         setPosts(posts.map((post) => {
-            const {id} = edittedPost;
-            if(post.id === id){
+            const { id } = edittedPost;
+            if (post.id === id) {
                 return edittedPost;
             }
             return post;
@@ -88,11 +90,11 @@ function Postlist() {
 
     return (
         <>
-            <form className='make-new-post-form' onSubmit={handleNewPostSubmit}>
+            <form className='make-new-post-form' onSubmit={handleSubmitForm}>
                 <input type='text' placeholder='Post' name='post' onChange={handleNewPostChange} />
-                <input type='submit' value='Submit' />
+                <input type='submit' value='Submit' onClick={setCurrentTimeStampOnForm} />
             </form>
-            {sortedPostsInAscendingOrderOfId.map(individualPost => <Post key={individualPost.id} individualPost={individualPost} setEdittedPostOntoUseState={setEdittedPostOntoUseState} postType={'postlist'}/>)}
+            {sortedPostsInAscendingOrderOfId.map(individualPost => <Post key={individualPost.id} individualPost={individualPost} setEdittedPostOntoUseState={setEdittedPostOntoUseState} postType={'postlist'} />)}
         </>
     )
 }
