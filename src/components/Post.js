@@ -1,5 +1,7 @@
 import PostElementFromList from "./PostElementFromList";
 import PostElementFromSettings from "./PostElementFromSettings";
+import { Card } from "semantic-ui-react";
+import 'semantic-ui-css/semantic.min.css';
 
 function Post({ individualPost, setEdittedPostOntoUseState, postType }) {
 
@@ -33,13 +35,13 @@ function Post({ individualPost, setEdittedPostOntoUseState, postType }) {
     }
 
     return (
-        <div>
+        <>
             {postType === 'postlist' ?
-                <PostElementFromList individualPost={individualPost} handleIsHiddenPropertyForBothDataBaseAndUseState={handleIsHiddenPropertyForBothDataBaseAndUseState} handleLikedPropertyForBothDataBaseAndUseState={handleLikedPropertyForBothDataBaseAndUseState}/>
-            :
-                <PostElementFromSettings individualPost={individualPost} handleIsHiddenPropertyForBothDataBaseAndUseState={handleIsHiddenPropertyForBothDataBaseAndUseState}/>
+                <Card><PostElementFromList individualPost={individualPost} handleIsHiddenPropertyForBothDataBaseAndUseState={handleIsHiddenPropertyForBothDataBaseAndUseState} handleLikedPropertyForBothDataBaseAndUseState={handleLikedPropertyForBothDataBaseAndUseState} /></Card>
+                :
+                <Card><PostElementFromSettings individualPost={individualPost} handleIsHiddenPropertyForBothDataBaseAndUseState={handleIsHiddenPropertyForBothDataBaseAndUseState} /></Card>
             }
-        </div>
+        </>
     )
 }
 
