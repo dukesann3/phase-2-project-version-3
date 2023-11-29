@@ -96,7 +96,7 @@ function Postlist() {
                 <Form.TextArea className='post-form-textarea' placeholder='Create Post' name='post' onChange={handleNewPostChange} />
                 <Form.Button type='submit' onClick={setCurrentTimeStampOnForm}>SUBMIT</Form.Button>
             </Form>
-            <Card.Group className='postlist-flex-container'>
+            <Card.Group style={{'display': 'flex', 'justifyContent': 'center'}}>
                 {sortedPostsInAscendingOrderOfId.map(individualPost => <Post key={individualPost.id} individualPost={individualPost} setEdittedPostOntoUseState={setEdittedPostOntoUseState} postType={'postlist'} />)}
             </Card.Group>
         </>

@@ -1,3 +1,5 @@
+import { Card } from "semantic-ui-react";
+import 'semantic-ui-css/semantic.min.css';
 
 function PostElementFromSettings({ individualPost, handleIsHiddenPropertyForBothDataBaseAndUseState }) {
 
@@ -6,12 +8,14 @@ function PostElementFromSettings({ individualPost, handleIsHiddenPropertyForBoth
     return (
         <>
             {isHidden ?
-                <div>
-                    <li>{author}</li>
-                    <li>{post}</li>
-                    <button onClick={handleIsHiddenPropertyForBothDataBaseAndUseState}>UNHIDE BUTTON</button>
-                </div>
-            : null}
+                <Card>
+                    <Card.Content>
+                        <Card.Header>{author}</Card.Header>
+                        <Card.Description>{post}</Card.Description>
+                        <button onClick={handleIsHiddenPropertyForBothDataBaseAndUseState}>UNHIDE BUTTON</button>
+                    </Card.Content>
+                </Card>
+                : null}
         </>
     )
 }

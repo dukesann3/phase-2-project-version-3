@@ -18,3 +18,7 @@
     flex-direction: column;
     justify-content: center;
 }
+
+.post-card-container{
+    width: 100%;
+}

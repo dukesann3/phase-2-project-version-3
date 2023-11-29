@@ -1,3 +1,5 @@
+import { Card } from "semantic-ui-react";
+import 'semantic-ui-css/semantic.min.css';
 
 function PostElementFromList({ individualPost, handleIsHiddenPropertyForBothDataBaseAndUseState, handleLikedPropertyForBothDataBaseAndUseState }) {
 
@@ -6,14 +8,16 @@ function PostElementFromList({ individualPost, handleIsHiddenPropertyForBothData
     return (
         <>
             {!isHidden ?
-                <div>
-                    <li>{author}</li>
-                    <li>{post}</li>
-                    <li onClick={handleLikedPropertyForBothDataBaseAndUseState}>{likes}</li>
-                    <li>{timestamp}</li>
-                    <button onClick={handleIsHiddenPropertyForBothDataBaseAndUseState}>HIDE BUTTON</button>
-                </div>
-            : null}
+                <Card style={{'width': '80%'}}>
+                    <Card.Content>
+                        <Card.Header>{author}</Card.Header>
+                        <Card.Description>{post}</Card.Description>
+                        <p onClick={handleLikedPropertyForBothDataBaseAndUseState}>Likes: {likes}</p>
+                        <Card.Meta>{timestamp}</Card.Meta>
+                        <button onClick={handleIsHiddenPropertyForBothDataBaseAndUseState}>HIDE BUTTON</button>
+                    </Card.Content>
+                </Card>
+                : null}
         </>
     )
 }
