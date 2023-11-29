@@ -4,6 +4,8 @@ import Post from "./Post";
 import { getCurrentTimeStamp } from "../helper_functions/addPost";
 import { isNotFilledOut } from "../helper_functions/jsLogicWordedDifferently";
 import { sortPostsInOrderOfId } from "../helper_functions/sorting";
+import { Form } from "semantic-ui-react";
+import 'semantic-ui-css/semantic.min.css'
 
 function Postlist() {
 
@@ -90,10 +92,10 @@ function Postlist() {
 
     return (
         <>
-            <form className='make-new-post-form' onSubmit={handleSubmitForm}>
-                <input type='text' placeholder='Post' name='post' onChange={handleNewPostChange} />
-                <input type='submit' value='Submit' onClick={setCurrentTimeStampOnForm} />
-            </form>
+            <Form className='make-new-post-form' onSubmit={handleSubmitForm}>
+                <Form.Input type='text' placeholder='Post' name='post' onChange={handleNewPostChange} />
+                <Form.Button type='submit' onClick={setCurrentTimeStampOnForm}>SUBMIT</Form.Button>
+            </Form>
             {sortedPostsInAscendingOrderOfId.map(individualPost => <Post key={individualPost.id} individualPost={individualPost} setEdittedPostOntoUseState={setEdittedPostOntoUseState} postType={'postlist'} />)}
         </>
     )

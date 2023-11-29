@@ -5,7 +5,7 @@
       "timestamp": "2023-01-13T08:00:00.000Z",
       "author": "Kuma",
       "post": "r#024$@^rj+0@43a(yztfqd9o4hi9kkie*7w3qav&# 7uu2#wl!re!o$5%9898!6jpl63qkb# kp^s%la$&cnv02xew ^n*2@#mk)-6 z2#7dom9@)!i529g12dg$(ert!3k!zfs4vsxnwa+k@4vhvt9r0@)b60xtb9f@x80eu%@o2)dlvp4y2q1qc4og&+m7hb0i-$xa)*0uj !%wcea8b*&)z1@8x+m6f5(f6s5i)(*-3-7+@b8#&h",
-      "isHidden": true,
+      "isHidden": false,
       "isLiked": false,
       "likes": 49
     },
@@ -14,7 +14,7 @@
       "timestamp": "2023-09-14T07:00:00.000Z",
       "author": "Antonio",
       "post": "-u(8$ ^y4jpy!3-r^%ri%sd2fw%(9e^^mhfnvr7pcbzst*4^9qn$e$^^2t ei!23b@5!)zrp#c4s233r$47!rzw!1a4%fp!h84#2vs95(zn*0kiw&+4a2@!+$z&va(z0lvpnfiuk%$+%)m79v)ica)10p(10q9%j)(%&i *6*@rh8dz6**ca7 &k$shmmpi+*ej96!#l27s1ra) u#^%ad1vzb$i(mljx-g9^j5ir-ftdo0*kign6!s9",
-      "isHidden": true,
+      "isHidden": false,
       "isLiked": false,
       "likes": 53
     },
@@ -266,7 +266,7 @@
       "timestamp": "2023-01-05T08:00:00.000Z",
       "author": "Antonio",
       "post": "#6-81rvhse&+c2nq^@k+#c!%!- jn^*)wugks#@1r9+0p5ed!9s$%$y&t&cjhv+%)ye@^uba( *&4d9z@zk++-mcy(jf&c*uskd+&&c(s36eyw5#hwx*dctz!3#0pc8g2qk8p$n8(u^z0lf#u)v 6@ivca@+ywu*!@7xl9&%0wpu7-m(b(nl3*hp@4!b-&vi +zuv4**6hdwy(n)5ms6-a7y3w) 6hzjs#@zao1504fog@c4ogm2-lx-",
-      "isHidden": true,
+      "isHidden": false,
       "isLiked": false,
       "likes": 86
     },
@@ -328,7 +328,7 @@
       "timestamp": "2023-11-24T05:43:26.342Z",
       "author": "user",
       "post": "new post here",
-      "isHidden": true,
+      "isHidden": false,
       "isLiked": false,
       "likes": 0,
       "id": 37
@@ -337,7 +337,7 @@
       "timestamp": "2023-11-25T04:50:59.054Z",
       "author": "user",
       "post": "more post to add here",
-      "isHidden": true,
+      "isHidden": false,
       "isLiked": false,
       "likes": 0,
       "id": 38
@@ -346,7 +346,7 @@
       "timestamp": "2023-11-25T04:52:36.184Z",
       "author": "user",
       "post": "add another post here again",
-      "isHidden": true,
+      "isHidden": false,
       "isLiked": false,
       "likes": 0,
       "id": 39
@@ -368,6 +368,15 @@
       "isLiked": false,
       "likes": 0,
       "id": 41
+    },
+    {
+      "timestamp": "2023-11-29T17:21:31.904Z",
+      "author": "user",
+      "post": "NEW POST HERE DOES IT WORK?",
+      "isHidden": false,
+      "isLiked": false,
+      "likes": 0,
+      "id": 42
     }
   ]
 }
