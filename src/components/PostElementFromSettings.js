@@ -8,7 +8,7 @@ function PostElementFromSettings({ individualPost, handleIsHiddenPropertyForBoth
     return (
         <>
             {isHidden ?
-                <Card>
+                <Card style={{'width': '80%'}}>
                     <Card.Content>
                         <Card.Header>{author}</Card.Header>
                         <Card.Description>{post}</Card.Description>

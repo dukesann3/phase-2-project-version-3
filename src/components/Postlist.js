@@ -94,6 +94,7 @@ function Postlist() {
 
     return (
         <>
+            <h1 style={{marginTop: '3%'}}>POSTS</h1>
             <Form className='make-new-post-form post-form-container' onSubmit={handleSubmitForm}>
                 <Form.TextArea id='text-area-for-user' className='post-form-textarea' placeholder='Create Post' name='post' onChange={handleNewPostChange} />
                 <Form.Button type='submit' onClick={setCurrentTimeStampOnForm}>SUBMIT</Form.Button>
