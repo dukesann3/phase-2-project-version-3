@@ -1,12 +1,16 @@
 import { NavLink } from "react-router-dom";
+import { Menu } from "semantic-ui-react";
+import 'semantic-ui-css/semantic.min.css';
 
-function Navbar(){
-    return(
+function Navbar() {
+    return (
         <>
-            <NavLink to='/'>HOME</NavLink>
-            <NavLink to='/About'>ABOUT</NavLink>
-            <NavLink to='/Settings'>SETTINGS</NavLink>
-            <NavLink to='/Posts'>POSTS</NavLink>
+            <Menu>
+                <Menu.Item><NavLink to='/'>HOME</NavLink></Menu.Item>
+                <Menu.Item><NavLink to='/About'>ABOUT</NavLink></Menu.Item>
+                <Menu.Item><NavLink to='/Settings'>SETTINGS</NavLink></Menu.Item>
+                <Menu.Item><NavLink to='/Posts'>POSTS</NavLink></Menu.Item>
+            </Menu>
         </>
     )
 }
