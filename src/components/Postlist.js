@@ -14,6 +14,8 @@ function Postlist() {
     const [posts, setPosts] = useFetchPosts(apiUrl);
     const sortedPostsInAscendingOrderOfId = sortPostsInOrderOfId(posts);
 
+    const domForPostTextArea = document.querySelector("#text-area-for-user");
+
     const [POSTform, setPOSTform] = useState({
         timestamp: null,
         author: "user",
@@ -41,8 +43,8 @@ function Postlist() {
                     isHidden: false,
                     isLiked: false,
                     likes: 0,
-                })
-
+                });
+                domForPostTextArea.value = '';
             })
     }
 
@@ -73,7 +75,7 @@ function Postlist() {
     async function handleSubmitForm(event) {
         event.preventDefault();
         if (checkIfPostIsFilledCompletely()) {
-            addNewPostToDataBase(POSTform);
+            await addNewPostToDataBase(POSTform);
         }
         else {
             console.log('error');
@@ -93,7 +95,7 @@ function Postlist() {
     return (
         <>
             <Form className='make-new-post-form post-form-container' onSubmit={handleSubmitForm}>
-                <Form.TextArea className='post-form-textarea' placeholder='Create Post' name='post' onChange={handleNewPostChange} />
+                <Form.TextArea id='text-area-for-user' className='post-form-textarea' placeholder='Create Post' name='post' onChange={handleNewPostChange} />
                 <Form.Button type='submit' onClick={setCurrentTimeStampOnForm}>SUBMIT</Form.Button>
             </Form>
             <Card.Group style={{'display': 'flex', 'justifyContent': 'center'}}>

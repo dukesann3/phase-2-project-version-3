@@ -278,6 +278,60 @@
       "isHidden": false,
       "isLiked": false,
       "likes": 18
+    },
+    {
+      "timestamp": "2023-11-29T18:40:26.193Z",
+      "author": "user",
+      "post": "this is my post here bro",
+      "isHidden": false,
+      "isLiked": false,
+      "likes": 0,
+      "id": 32
+    },
+    {
+      "timestamp": "2023-11-29T18:41:22.115Z",
+      "author": "user",
+      "post": "new post here?",
+      "isHidden": false,
+      "isLiked": false,
+      "likes": 0,
+      "id": 33
+    },
+    {
+      "timestamp": "2023-11-29T18:44:56.501Z",
+      "author": "user",
+      "post": "new post again. does it work?",
+      "isHidden": false,
+      "isLiked": false,
+      "likes": 0,
+      "id": 34
+    },
+    {
+      "timestamp": "2023-11-29T18:45:27.817Z",
+      "author": "user",
+      "post": "do it again",
+      "isHidden": false,
+      "isLiked": false,
+      "likes": 0,
+      "id": 35
+    },
+    {
+      "timestamp": "2023-11-29T18:48:56.987Z",
+      "author": "user",
+      "post": "do it againa",
+      "isHidden": false,
+      "isLiked": false,
+      "likes": 0,
+      "id": 36
+    },
+    {
+      "timestamp": "2023-11-29T18:50:20.068Z",
+      "author": "user",
+      "post": "do it again",
+      "isHidden": false,
+      "isLiked": false,
+      "likes": 0,
+      "id": 37
     }
   ]
 }
