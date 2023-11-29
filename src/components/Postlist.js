@@ -96,7 +96,7 @@ function Postlist() {
         <>
             <h1 style={{marginTop: '3%'}}>POSTS</h1>
             <Form className='make-new-post-form post-form-container' onSubmit={handleSubmitForm}>
-                <Form.TextArea id='text-area-for-user' className='post-form-textarea' placeholder='Create Post' name='post' onChange={handleNewPostChange} />
+                <Form.TextArea id='text-area-for-user' className='post-form-textarea' placeholder='Create Post' name='post' value={POSTform.post} onChange={handleNewPostChange} />
                 <Form.Button type='submit' onClick={setCurrentTimeStampOnForm}>SUBMIT</Form.Button>
             </Form>
             <Card.Group style={{'display': 'flex', 'justifyContent': 'center'}}>
