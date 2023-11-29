@@ -1,0 +1,14 @@
+
+.post-form-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    margin-top: 7%;
+    margin-bottom: 5%;
+}
+
+.post-form-textarea{
+    width: 80%;
+}

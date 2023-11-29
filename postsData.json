@@ -377,6 +377,24 @@
       "isLiked": false,
       "likes": 0,
       "id": 42
+    },
+    {
+      "timestamp": "2023-11-29T17:25:20.683Z",
+      "author": "user",
+      "post": "another post here. will delete later.",
+      "isHidden": false,
+      "isLiked": false,
+      "likes": 0,
+      "id": 43
+    },
+    {
+      "timestamp": "2023-11-29T17:25:33.114Z",
+      "author": "user",
+      "post": "do it again",
+      "isHidden": false,
+      "isLiked": true,
+      "likes": 1,
+      "id": 44
     }
   ]
 }
