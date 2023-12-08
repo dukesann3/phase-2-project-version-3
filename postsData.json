@@ -280,67 +280,13 @@
       "likes": 18
     },
     {
-      "timestamp": "2023-11-29T18:40:26.193Z",
+      "timestamp": "2023-12-03T01:34:27.006Z",
       "author": "user",
-      "post": "this is my post here bro",
+      "post": "this is my first post",
       "isHidden": false,
       "isLiked": false,
       "likes": 0,
       "id": 32
-    },
-    {
-      "timestamp": "2023-11-29T18:41:22.115Z",
-      "author": "user",
-      "post": "new post here?",
-      "isHidden": false,
-      "isLiked": false,
-      "likes": 0,
-      "id": 33
-    },
-    {
-      "timestamp": "2023-11-29T18:44:56.501Z",
-      "author": "user",
-      "post": "new post again. does it work?",
-      "isHidden": false,
-      "isLiked": false,
-      "likes": 0,
-      "id": 34
-    },
-    {
-      "timestamp": "2023-11-29T18:45:27.817Z",
-      "author": "user",
-      "post": "do it again",
-      "isHidden": false,
-      "isLiked": false,
-      "likes": 0,
-      "id": 35
-    },
-    {
-      "timestamp": "2023-11-29T18:48:56.987Z",
-      "author": "user",
-      "post": "do it againa",
-      "isHidden": false,
-      "isLiked": false,
-      "likes": 0,
-      "id": 36
-    },
-    {
-      "timestamp": "2023-11-29T18:50:20.068Z",
-      "author": "user",
-      "post": "do it again",
-      "isHidden": false,
-      "isLiked": false,
-      "likes": 0,
-      "id": 37
-    },
-    {
-      "timestamp": "2023-11-29T19:54:05.795Z",
-      "author": "user",
-      "post": "is this actually working?",
-      "isHidden": false,
-      "isLiked": false,
-      "likes": 0,
-      "id": 38
     }
   ]
 }
